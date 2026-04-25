@@ -1,0 +1,558 @@
+:root {
+
+    --blanco: #ffffff;
+    --gris-claro: #f5f8fc;
+    --gris-texto: #a7dac04f;
+    --texto-oscuro: hsl(220, 48%, 20%);
+    --negro: rgba(0, 0, 0, 0.914);
+    --verde-hospital: rgba(107, 227, 159, 0.526);
+    --mbra: 0 4px 24px rgba(10, 10, 10, 0.12);
+    --sombra-hover: 0 8px 32px rgba(10, 94, 66, 0.648);
+    --borde-radio: 12px;
+    --borde-radio-sm: 6px;
+    --transicion: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Noto Seriff", sans-seriff;
+    color: var(--texto-oscuro);
+    background-color: var(--blanco);
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+
+.navegacion {
+    background-color: var(--blanco);
+    box-shadow: 0 2px 16px var(--texto-oscuro);
+    padding: 0.6rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1050;
+}
+
+.navegacion .navbar-brand img {
+    height: 54px;
+    object-fit: contain;
+}
+
+.navegacion .navbar-brand .brand-text {
+    line-height: 1.1;
+}
+
+.navegacion .brand-nombre {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 1.25rem;
+    color: var(--texto-oscuro);
+    letter-spacing: 0.04em;
+
+}
+
+.navegacion .brand-sub {
+    font-size: 0.72rem;
+    color: var(--texto-oscuro);
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    display: block;
+}
+
+.navegacion .nav-link {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
+    font-size: 0.92rem;
+    color: var(--texto-oscuro);
+    padding: 0.5rem 0.85rem;
+    position: relative;
+}
+
+.navegacion .nav-link:hover {
+    color: var(--verde-hospital);
+}
+
+.navegacion .nav-cita {
+    background: rgba(88, 89, 90, 0.049);
+    color: var(--sombra-hover);
+    border-radius: 50px;
+    padding: 0.45rem 1.2rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    box-shadow: 0 2px 12px var(--verde-hospital);
+    transition: var(--transicion);
+}
+
+
+.navegacion .nav-cita::after {
+    display: none;
+}
+
+.navegacion .navbar-toggler {
+    border: none;
+    color: rgba(42, 127, 212, 0.45);
+}
+
+
+#img-principal {
+    min-height: 60vh;
+    background-image: url('img/hero-fondo.png');
+    background-size: cover;
+    background-position: top left;
+    background-repeat: no-repeat;
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    overflow: hidden;
+    padding-top: 4rem;
+}
+
+.hero-imagen-wrapper {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+#sobre-nosotros {
+    background: rgba(255, 255, 255, 0.45);
+    padding: 5rem 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+
+.seccion-badge {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.45);
+    color: rgb(0, 0, 0);
+    border-radius: 50px;
+    padding: 0.3rem 1rem;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+
+}
+
+.seccion-titulo {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: clamp(1.7rem, 3vw, 2.5rem);
+    color: rgba(0, 0, 0, 0.997);
+    line-height: 1.2;
+    margin-bottom: 1.2rem;
+}
+
+.seccion-titulo span {
+    color: rgba(255, 255, 255, 0.45)
+}
+
+.seccion-texto {
+    color: rgba(14, 12, 12, 0.755);
+    font-size: 1.20rem;
+    line-height: 1.80;
+
+}
+
+.pilares-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.pilar-item {
+    background: rgba(255, 255, 255, 0.45);
+    border-radius: rgba(255, 255, 255, 0.45);
+    padding: 1.1rem 1.3rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    border-left: 4px solid rgba(255, 255, 255, 0.45);
+    border: 1px solid rgba(107, 227, 159, 0.526);
+    backdrop-filter: blur(16px);
+    border-radius: 16px;
+    padding: 1rem;
+}
+
+
+
+.pilar-label {
+    font-weight: 800;
+    font-size: 1.20rem;
+    color: rgb(12, 12, 12);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+@media (min-width: 992px) {
+    .pilares-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.tarjetas-contenedor {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+    padding: 0;
+    width: 100%;
+    border-radius: 12px;
+}
+
+.tarjeta-info {
+    min-height: 160px;
+    padding: 2rem 1rem;
+    background: var(--verde-hospital);
+}
+
+
+
+
+.tarjeta-icono {
+    font-size: 1.20rem;
+    color: rgba(18, 17, 17, 0.92);
+    display: block;
+}
+
+.tarjeta-titulo {
+    color: #000000;
+    font-size: 1.20rem;
+    font-weight: 600;
+    line-height: 1.3;
+    display: block;
+}
+
+.tarjeta-descripcion {
+    color: rgba(9, 9, 9, 0.72);
+    font-size: 1.05rem;
+    margin: 0;
+    line-height: 1.4;
+}
+
+@media (max-width: 767.98px) {
+    .tarjetas-contenedor {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 575.98px) {
+    .tarjetas-contenedor {
+        grid-template-columns: 1fr;
+    }
+}
+
+#Servicios_medicos {
+    background: var(--gris-claro);
+    padding: 5rem 0;
+}
+
+.Servicios_medicos-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.2rem;
+}
+
+.servicio-card {
+    background: linear-gradient(135deg, var(--verde-hospital), var(gris-texto));
+    border-radius: var(--borde-radio);
+    padding: 2rem 1.5rem;
+    text-align: center;
+    color: var(--blanco);
+    cursor: pointer;
+    transition: var(--transicion);
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--sombra);
+}
+
+.servicio-card::before {
+    content: '';
+    position: absolute;
+    top: -40%;
+    right: -20%;
+    width: 120px;
+    height: 120px;
+    background: var(--verde-hospital)
+}
+
+
+.servicio-icono {
+    font-size: 2.4rem;
+    margin-bottom: 0.8rem;
+    display: block;
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.2));
+}
+
+.servicio-nombre {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    line-height: 1.3;
+}
+
+
+#promociones {
+    padding: 5rem 0;
+}
+
+.promo-card {
+    border-radius: 16px;
+    border: 2px solid rgba(25, 22, 22, 0.089);
+    overflow: hidden;
+    box-shadow: var(--sombra);
+    transition: var(--transicion);
+    height: 100%;
+    position: relative;
+    padding: 1.5rem;
+}
+
+.promo-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--sombra-hover);
+}
+
+.promo-imagen {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+.promo-card .promo-header {
+    padding: 1.5rem 1.5rem 1rem;
+    background: linear-gradient(135deg, var(--blanco), var(gris-texto-fondo));
+    color: var(--negro);
+
+}
+
+.promo-titulo {
+    font-family: "Noto Seriff", sans-seriff;
+    font-weight: 800;
+    font-size: 1rem;
+    line-height: 1.3;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+
+}
+
+.promo-descuento {
+    display: flex;
+    gap: 0.7rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.descuento-badge {
+    background: var(--verde-hospital);
+    border: 1px solid rgba(107, 227, 159, 0.526);
+    border-radius: 8px;
+    padding: 0.4rem 0.75rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 1.4rem;
+    backdrop-filter: blur(4px);
+}
+
+.descuento-badge small {
+    font-size: 0.7rem;
+    font-weight: 600;
+    display: block;
+    opacity: 0.85;
+}
+
+.promo-card .promo-body {
+    padding: 1rem 1.5rem 1.5rem;
+    background: var(--gris-texto);
+    border-radius: 16px;
+}
+
+.promo-descripcion {
+    font-size: 0.9rem;
+    color: var(--negro);
+    font-weight: 600;
+}
+
+.btn-promo {
+    background: var(--verde-hospital);
+    color: var(--negro);
+    border: 1px solid transparent;
+    border-radius: 50px;
+    padding: 0.5rem 1.3rem;
+    font-weight: 700;
+    font-size: 0.85rem;
+    margin-top: 0.8rem;
+    text-decoration: none;
+    display: inline-block;
+}
+
+
+
+footer {
+    background: #061a3e;
+    color: rgba(255, 255, 255, 0.75);
+    padding: 3.5rem 0 0;
+}
+
+.footer-logo .brand-nombre {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 1.3rem;
+    color: #75C594;
+    display: block;
+}
+
+.footer-logo .brand-sub {
+    font-size: 0.72rem;
+    color: var(gris-texto);
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.footer-descripcion {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    margin-top: 0.8rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.footer-titulo-seccion {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: var(gris-texto);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 1rem;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-links a {
+    color: rgba(255, 255, 255, 0.65);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: var(--transicion);
+}
+
+.footer-links a:hover {
+    color: #75C594;
+    ;
+    padding-left: 6px;
+}
+
+.footer-social {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 1.2rem;
+}
+
+.footer-social a {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: rgba(255, 255, 255, 0.75);
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: var(--transicion);
+}
+
+.footer-social a:hover {
+    background: var(gris-texto);
+    border-color: var(gris-texto);
+    color: var(--blanco);
+    transform: translateY(-3px);
+}
+
+.footer-divider {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    margin-top: 2.5rem;
+    padding: 1.2rem 0;
+}
+
+.footer-bottom {
+    font-size: 0.82rem;
+    color: #75C594;
+    ;
+}
+
+.footer-bottom a {
+    color: #75C594;
+    ;
+    text-decoration: none;
+}
+
+
+@keyframes pulso {
+
+    0%,
+    100% {
+        box-shadow: 0 4px 20px rgba(37, 211, 102, 0.45);
+    }
+
+    50% {
+        box-shadow: 0 4px 32px rgba(37, 211, 102, 0.7);
+    }
+}
+
+@media (max-width: 991.98px) {
+    .Servicios_medicos.html-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .pilares-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .Servicios_medicos.html-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .cta-btns {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .footer-social {
+        justify-content: flex-start;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .Servicios_medicos.html-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
