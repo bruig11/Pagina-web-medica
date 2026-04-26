@@ -2,96 +2,214 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Servicios_medicos.html Médicos</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" href="css/estilos.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Servicios Médicos</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/estilos-servicios.css">
+  <script src="funciones.js" defer></script>
 </head>
 <body>
 
-<div class="container mt-5">
-  <h2 class="text-center mb-4">Nuestros Servicios_medicos.html Médicos</h2>
-
-  <div class="row g-4">
-
-    <div class="col-md-4">
-      <div class="card h-100">
-        <img src="img/medicina.jpeg" class="card-img-top" alt="Medicina General">
-        <div class="card-body">
-          <h5 class="card-title">Medicina General</h5>
-          <p class="card-text">
-            Consulta médica general para diagnóstico y tratamiento de enfermedades comunes
-          </p>
-          <a href="#" class="btn btn-primary">Más información</a>
+  <nav class="navbar navbar-expand-lg navegacion">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+        <img src="img/logo-gya.png" alt="Logo Hospital General GYA" style="height:54px;" />
+        <div class="brand-text">
+          <span class="brand-nombre">Hospital General</span>
+          <span class="brand-sub">GYA · Salud de Excelencia</span>
         </div>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal"
+        aria-controls="menuPrincipal" aria-expanded="false" aria-label="Abrir menú">
+        <i class="bi bi-list fs-3 text-primary"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="menuPrincipal">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-1">
+          <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#sobre-nosotros">Nosotros</a></li>
+          <li class="nav-item"><a class="nav-link active" href="Servicios_medicos.html">Servicios</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#promociones">Promociones</a></li>
+          <li class="nav-item"><a class="nav-link" href="Datos-contacto.html">Contacto</a></li>
+          <li class="nav-item ms-lg-2">
+            <a class="nav-link nav-cita" href="formulario-reserva-citas.html">
+              <i class="bi bi-calendar-check me-1"></i>¡Agende su cita!
+            </a>
+          </li>
+        </ul>
       </div>
     </div>
+  </nav>
 
-    <div class="col-md-4">
-      <div class="card h-100">
-        <img src="img/pediatria.jpg" class="card-img-top" alt="Pediatría">
-        <div class="card-body">
-          <h5 class="card-title">Pediatría</h5>
-          <p class="card-text">
-            Atención especializada para niños, control de crecimiento y vacunas
-          </p>
-          <a href="#" class="btn btn-primary">Más información</a>
+  <div class="container mt-5 mb-5">
+    <h2 class="text-center mb-4">Servicios Médicos</h2>
+
+    <div class="row g-4">
+
+      <div class="col-md-4">
+        <div class="card h-100">
+          <img src="img/medicina.jpeg" class="card-img-top" alt="Medicina General">
+          <div class="card-body">
+            <h5 class="card-title">Medicina General</h5>
+            <p class="card-text">Consulta médica general para diagnóstico y tratamiento de enfermedades comunes</p>
+              <a href="formulario-reserva-citas.html" class="btn-servicio">Más información</a>
+            </a>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="col-md-4">
-      <div class="card h-100">
-        <img src="img/cardiologia.jpg" class="card-img-top" alt="Cardiología">
-        <div class="card-body">
-          <h5 class="card-title">Cardiología</h5>
-          <p class="card-text">
-            Diagnóstico y tratamiento de enfermedades del corazón
-          </p>
-          <a href="#" class="btn btn-primary">Más información</a>
+      <div class="col-md-4">
+        <div class="card h-100">
+          <img src="img/pediatria.jpg" class="card-img-top" alt="Pediatría">
+          <div class="card-body">
+            <h5 class="card-title">Pediatría</h5>
+            <p class="card-text">Atención especializada para niños, control de crecimiento y vacunas</p>
+              <a href="formulario-reserva-citas.html" class="btn-servicio">Más información</a>
+            </a>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="col-md-4">
-      <div class="card h-100">
-        <img src="img/ginecologia.jpeg" class="card-img-top" alt="Ginecología">
-        <div class="card-body">
-          <h5 class="card-title">Ginecología</h5>
-          <p class="card-text">
-            Cuidado integral de la salud femenina y control prenatal
-          </p>
-          <a href="#" class="btn btn-primary">Más información</a>
+      <div class="col-md-4">
+        <div class="card h-100">
+          <img src="img/cardiologia.jpg" class="card-img-top" alt="Cardiología">
+          <div class="card-body">
+            <h5 class="card-title">Cardiología</h5>
+            <p class="card-text">Diagnóstico y tratamiento de enfermedades del corazón</p>
+              <a href="formulario-reserva-citas.html" class="btn-servicio">Más información</a>
+            </a>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="col-md-4">
-      <div class="card h-100">
-        <img src="img/dermatologia.jpg" class="card-img-top" alt="Dermatología">
-        <div class="card-body">
-          <h5 class="card-title">Dermatología</h5>
-          <p class="card-text">
-            Tratamiento de enfermedades de la piel, acné y dermatitis
-          </p>
-          <a href="#" class="btn btn-primary">Más información</a>
+      <div class="col-md-4">
+        <div class="card h-100">
+          <img src="img/ginecologia.jpeg" class="card-img-top" alt="Ginecología">
+          <div class="card-body">
+            <h5 class="card-title">Ginecología</h5>
+            <p class="card-text">Cuidado integral de la salud femenina y control prenatal</p>
+              <a href="formulario-reserva-citas.html" class="btn-servicio">Más información</a>
+            </a>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="col-md-4">
-      <div class="card h-100">
-        <img src="img/laboratorio.jpg" class="card-img-top" alt="Laboratorio">
-        <div class="card-body">
-          <h5 class="card-title">Laboratorio Clínico</h5>
-          <p class="card-text">
-            Análisis clínicos completos: sangre, orina y estudios especializados
-          </p>
-          <a href="#" class="btn btn-primary">Más información</a>
+      <div class="col-md-4">
+        <div class="card h-100">
+          <img src="img/dermatologia.jpg" class="card-img-top" alt="Dermatología">
+          <div class="card-body">
+            <h5 class="card-title">Dermatología</h5>
+            <p class="card-text">Tratamiento de enfermedades de la piel, acné y dermatitis</p>
+              <a href="formulario-reserva-citas.html" class="btn-servicio">Más información</a>
+            </a>
+          </div>
         </div>
       </div>
-    </div>
 
+      <div class="col-md-4">
+        <div class="card h-100">
+          <img src="img/laboratorio.jpg" class="card-img-top" alt="Laboratorio">
+          <div class="card-body">
+            <h5 class="card-title">Laboratorio Clínico</h5>
+            <p class="card-text">Análisis clínicos completos: sangre, orina y estudios especializados</p>
+              <a href="formulario-reserva-citas.html" class="btn-servicio">Más información</a>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
   </div>
-</div>
+
+  <footer>
+    <div class="container">
+      <div class="row g-5">
+
+        <div class="col-lg-12">
+          <div class="footer-logo">
+            <span class="brand-nombre">Hospital General GYA</span>
+            <span class="brand-sub">Salud · Calidad · Innovación</span>
+          </div>
+          <p class="footer-descripcion">
+            Somos una alternativa médica integral comprometida con la salud de cada
+            paciente, combinando excelencia clínica, tecnología y calidez humana.
+          </p>
+        </div>
+
+        <div class="col-sm-6 col-lg-2">
+          <div class="footer-titulo-seccion">Links de Interés</div>
+          <ul class="footer-links">
+            <li><a href="#">Biblioteca médica virtual</a></li>
+            <li><a href="#">Ecosistema</a></li>
+            <li><a href="Servicios_medicos.html">Servicios Médicos</a></li>
+            <li><a href="#">Especialidades Médicas</a></li>
+            <li><a href="#">Aseguradoras</a></li>
+            <li><a href="#">Centros de Especialidad</a></li>
+            <li><a href="#">Maternidad</a></li>
+          </ul>
+        </div>
+
+        <div class="col-sm-6 col-lg-3">
+          <div class="footer-titulo-seccion">Contáctenos</div>
+          <ul class="footer-links">
+            <li><a href="#">WhatsApp</a></li>
+            <li><a href="tel:+50625219595">Teléfono</a></li>
+            <li><a href="#">Cotización y Consultas</a></li>
+            <li><a href="#">Trabaje con nosotros</a></li>
+            <li><a href="#">Contraloría de Servicios</a></li>
+            <li><a href="#">Registros Médicos</a></li>
+          </ul>
+        </div>
+
+        <div class="col-sm-6 col-lg-3">
+          <div class="footer-titulo-seccion">Contenido</div>
+          <ul class="footer-links">
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Noticias</a></li>
+            <li><a href="#">Testimoniales</a></li>
+          </ul>
+
+          <div class="mt-4">
+            <div class="footer-titulo-seccion">Accesos rápidos</div>
+            <div class="d-flex flex-column gap-2 mt-1">
+              <a href="#" class="text-decoration-none">
+                <span class="badge w-100 py-2 text-start"
+                  style="background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.75);font-size:0.82rem;">
+                  <i class="bi bi-whatsapp me-2" style="color:#25D366;"></i>WhatsApp
+                </span>
+              </a>
+              <a href="tel:+50625219595" class="text-decoration-none">
+                <span class="badge w-100 py-2 text-start"
+                  style="background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.75);font-size:0.82rem;">
+                  <i class="bi bi-telephone me-2" style="color:#75C594;"></i>Tel.: 2521-9595
+                </span>
+              </a>
+              <a href="formulario-reserva-citas.html" class="text-decoration-none">
+                <span class="badge w-100 py-2 text-start"
+                  style="background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.75);font-size:0.82rem;">
+                  <i class="bi bi-calendar-check me-2" style="color:#75C594;"></i>Agendar cita
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer-divider">
+        <div class="d-flex flex-wrap justify-content-between align-items-center footer-bottom gap-2">
+          <span>+506 2521-9595 &nbsp;|&nbsp; info@hospitalgya.cr &nbsp;|&nbsp; Todos los derechos reservados © 2025</span>
+          <span><a href="#">Política de Privacidad</a></span>
+          <span><a href="#">Desarrollado por GYA</a></span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>

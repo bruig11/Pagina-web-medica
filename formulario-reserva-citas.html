@@ -1,392 +1,287 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reserva de Cita Online - Clínica</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="estilos.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reserva de Cita - Hospital General GYA</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/estilos-index.css">
+  <link rel="stylesheet" href="css/estilos-form.css">
+  <script src="funciones.js" defer></script>
 </head>
 <body>
 
-<div class="container">
-    <div class="contenedor-formulario">
-        <div class="encabezado">
-            <h2>Reserva de Cita</h2>
-            <p class="mb-0">Complete todos los campos para confirmar su cita médica</p>
+  <nav class="navbar navbar-expand-lg navegacion">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+        <img src="img/logo-gya.png" alt="Logo Hospital General GYA" style="height:54px;" />
+        <div class="brand-text">
+          <span class="brand-nombre">Hospital General</span>
+          <span class="brand-sub">GYA · Salud de Excelencia</span>
         </div>
-
-        <div id="seccion-formulario" class="p-4">
-            <h5 class="text-primary border-bottom pb-2 mb-3">A. Información Personal</h5>
-            <div class="row">
-                <div class="col-md-6 mb-3">
-                    <label for="nombre" class="form-label">Nombre y Apellido <span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" id="nombre" placeholder="Ej: Rosalina Ortiz"
-                           oninput="validarNombre()" onblur="validarNombre()">
-                    <small id="error-nombre" class="text-danger" style="display:none;">El nombre es obligatorio.</small>
-                </div>
-                <div class="col-md-6 mb-3">
-                    <label for="correo" class="form-label">Correo Electrónico <span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" id="correo" placeholder="ejemplo@correo.com"
-                           oninput="validarCorreo()" onblur="validarCorreo()">
-                    <small id="error-correo" class="text-danger" style="display:none;">Ingrese un correo válido.</small>
-                </div>
-
-                <div class="col-md-4 mb-3">
-                    <label for="telefono" class="form-label">Teléfono <span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" id="telefono" placeholder="Ej: 86001234"
-                           oninput="validarTelefono()" onblur="validarTelefono()">
-                    <small id="error-telefono" class="text-danger" style="display:none;">Solo números, entre 8 y 10 dígitos.</small>
-                </div>
-
-                <div class="col-md-4 mb-3">
-                    <label for="direccion" class="form-label">Dirección</label>
-                    <input type="text" class="form-control" id="direccion" placeholder="Ej: San José, Costa Rica">
-                </div>
-
-                <div class="col-md-4 mb-3">
-                    <label for="edad" class="form-label">Edad <span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" id="edad" placeholder="Ej: 26"
-                           oninput="validarEdad()" onblur="validarEdad()">
-                    <small id="error-edad" class="text-danger" style="display:none;">Ingrese una edad válida (número mayor a 0).</small>
-                </div>
-            </div>
-            <!--CITA -->
-            <h5 class="text-primary border-bottom pb-2 mb-3 mt-2">B. Información de la Cita</h5>
-            <div class="row">
-
-                <div class="col-md-6 mb-3">
-                    <label for="especialidad" class="form-label">Especialidad Médica <span class="text-danger">*</span></label>
-                    <select class="form-select" id="especialidad" onchange="validarEspecialidad()">
-                        <option value="">-- Seleccione una especialidad --</option>
-                        <option value="Pediatría">Pediatría</option>
-                        <option value="Cardiología">Cardiología</option>
-                        <option value="Medicina General">Medicina General</option>
-                        <option value="Dermatología">Dermatología</option>
-                        <option value="Ginecología">Ginecología</option>
-                        <option value="Laboratorio">Laboratorio</option>
-                    </select>
-                    <small id="error-especialidad" class="text-danger" style="display:none;">Seleccione una especialidad.</small>
-                </div>
-
-                <div class="col-md-3 mb-3">
-                    <label for="fecha" class="form-label">Fecha de la Cita <span class="text-danger">*</span></label>
-                    <input type="date" class="form-control" id="fecha"
-                           onchange="validarFecha()" onblur="validarFecha()">
-                    <small id="error-fecha" class="text-danger" style="display:none;">Fecha inválida o fin de semana.</small>
-                </div>
-
-                <div class="col-md-3 mb-3">
-                    <label for="hora" class="form-label">Horario <span class="text-danger">*</span></label>
-                    <input type="time" class="form-control" id="hora" min="09:00" max="17:00"
-                           onchange="validarHora()" onblur="validarHora()">
-                    <small id="error-hora" class="text-danger" style="display:none;">El horario debe ser entre 09:00 y 17:00.</small>
-                </div>
-
-                <div class="col-12 mb-3">
-                    <label for="motivo" class="form-label">Motivo de Consulta <span class="text-danger">*</span></label>
-                    <textarea class="form-control" id="motivo" rows="3" maxlength="250"
-                              placeholder="Describa brevemente el motivo de su consulta..."
-                              oninput="validarMotivo()" onblur="validarMotivo()"></textarea>
-                    <div class="d-flex justify-content-between">
-                        <small id="error-motivo" class="text-danger" style="display:none;">El motivo es obligatorio.</small>
-                        <small id="contador-motivo" class="ms-auto">0 / 250 caracteres</small>
-                    </div>
-                </div>
-            </div>
-
-            <!-- BOTONES -->
-            <div class="d-flex gap-2 mt-2">
-                <button type="button" class="btn btn-success" id="btnConfirmar" onclick="confirmarCita()">
-                    Confirmar Cita
-                </button>
-                <button type="button" class="btn btn-secondary" onclick="limpiarFormulario()">
-                    Limpiar
-                </button>
-            </div>
-
-        </div>
-
-        <div id="reservada">
-            <h3 class="text-success mt-3">Cita Confirmada</h3>
-            <p class="text-muted">Su reserva ha sido registrada exitosamente.</p>
-
-            <div class="card border-success mx-auto mt-3" style="max-width: 400px;">
-                <div class="card-body text-start">
-                    <p><strong>Número de Folio:</strong> <span id="numero-folio" class="text-primary"></span></p>
-                    <p><strong>Paciente:</strong> <span id="resumen-nombre"></span></p>
-                    <p><strong>Especialidad:</strong> <span id="resumen-especialidad"></span></p>
-                    <p><strong>Fecha:</strong> <span id="resumen-fecha"></span></p>
-                    <p><strong>Hora:</strong> <span id="resumen-hora"></span></p>
-                    <hr>
-                    <p><strong>Monto a Pagar:</strong> <span id="resumen-monto" class="text-success fw-bold"></span></p>
-                </div>
-            </div>
-
-            <button class="btn btn-primary mt-4" onclick="nuevaReserva()">
-                Realizar otra reserva
-            </button>
-        </div>
-
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal"
+        aria-controls="menuPrincipal" aria-expanded="false" aria-label="Abrir menú">
+        <i class="bi bi-list fs-3 text-primary"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="menuPrincipal">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-1">
+          <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#sobre-nosotros">Nosotros</a></li>
+          <li class="nav-item"><a class="nav-link" href="Servicios_medicos.html">Servicios</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#promociones">Promociones</a></li>
+          <li class="nav-item"><a class="nav-link" href="Datos-contacto.html">Contacto</a></li>
+          <li class="nav-item ms-lg-2">
+            <a class="nav-link nav-cita active" href="formulario-reserva-citas.html">
+              <i class="bi bi-calendar-check me-1"></i>¡Agende su cita!
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
-</div>
+  </nav>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <div class="container mt-4 mb-2">
+    <h2 class="titulo-pagina">Agende su cita</h2>
+  </div>
 
-<script>
+  <div class="container">
+    <div class="tarjeta-formulario">
 
-    const especialidades = ["Pediatría", "Cardiología", "Medicina General", "Dermatología", "Ginecologia", "Laboratorio"];
-    const montos         = [40000,        65000,          15000,              18000,           50000,         12000];
+      <div class="formulario-encabezado">
+        <div class="encabezado-icono">
+          <i class="bi bi-clipboard2-pulse"></i>
+        </div>
+        <div>
+          <h2>Datos de la cita</h2>
+          <p>Complete todos los campos para confirmar su cita médica</p>
+        </div>
+      </div>
 
-    // FUNCIÓN: Obtener monto según la especialidad seleccionada
-    function obtenerMonto(nombreEspecialidad) {
-        for (let i = 0; i < especialidades.length; i++) {
-            if (especialidades[i] === nombreEspecialidad) {
-                return montos[i];
-            }
-        }
-        return 0; 
-    }
+      <div class="formulario-cuerpo">
 
-    // en veremos
-    function aplicarEstilo(idCampo, idError, esValido) {
-        let campo = document.getElementById(idCampo);
-        let error = document.getElementById(idError);
+        <div id="seccion-formulario">
 
-        if (esValido) {
-            campo.classList.remove("campo-invalido");
-            campo.classList.add("campo-valido");
-            error.style.display = "none";
-        } else {
-            campo.classList.remove("campo-valido");
-            campo.classList.add("campo-invalido");
-            error.style.display = "inline";
-        }
-    }
+          <div class="seccion-titulo-grupo mb-3">
+            <i class="bi bi-person"></i>Datos personales
+          </div>
+          <div class="row g-3 mb-4">
+            <div class="col-md-6">
+              <label class="form-label">Nombre completo</label>
+              <input type="text" id="nombre" class="form-control" placeholder="Ej: Maria Solis">
+              <span id="err-nombre" style="color:#dc2626; font-size:0.78rem;"></span>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Correo electrónico</label>
+              <input type="text" id="correo" class="form-control" placeholder="correo@ejemplo.com">
+              <span id="err-correo" style="color:#dc2626; font-size:0.78rem;"></span>
+            </div>
+            <div class="col-md-4">
+              <label class="form-label">Teléfono</label>
+              <input type="text" id="telefono" class="form-control" placeholder="8648-2546">
+              <span id="err-telefono" style="color:#dc2626; font-size:0.78rem;"></span>
+            </div>
+            <div class="col-md-4">
+              <label class="form-label">Edad</label>
+              <input type="number" id="edad" class="form-control" placeholder="Ej: 35">
+              <span id="err-edad" style="color:#dc2626; font-size:0.78rem;"></span>
+            </div>
+            <div class="col-md-4">
+              <label class="form-label">Dirección</label>
+              <input type="text" id="direccion" class="form-control" placeholder="Ej: San José, Costa Rica">
+            </div>
+          </div>
 
-    // VALIDACIÓN: Nombre y Apellido
-    function validarNombre() {
-        let nombre = document.getElementById("nombre").value.trim();
-        let esValido = nombre !== "";
-        aplicarEstilo("nombre", "error-nombre", esValido);
-        return esValido;
-    }
+          <div class="seccion-titulo-grupo mb-3">
+            <i class="bi bi-hospital"></i>Datos de la cita
+          </div>
+          <div class="row g-3 mb-4">
+            <div class="col-md-6">
+              <label class="form-label">Especialidad</label>
+              <select id="especialidad" class="form-select">
+                <option value="">Seleccione una especialidad</option>
+                <option>Pediatría</option>
+                <option>Cardiología</option>
+                <option>Medicina General</option>
+                <option>Dermatología</option>
+                <option>Ginecología</option>
+                <option>Laboratorio</option>
+              </select>
+              <span id="err-especialidad" style="color:#dc2626; font-size:0.78rem;"></span>
+            </div>
+            <div class="col-md-3">
+              <label class="form-label">Fecha</label>
+              <input type="date" id="fecha" class="form-control">
+              <span id="err-fecha" style="color:#dc2626; font-size:0.78rem;"></span>
+            </div>
+            <div class="col-md-3">
+              <label class="form-label">Hora</label>
+              <input type="time" id="hora" class="form-control">
+              <span id="err-hora" style="color:#dc2626; font-size:0.78rem;"></span>
+            </div>
+            <div class="col-12">
+              <label class="form-label">Motivo de consulta</label>
+              <textarea id="motivo" class="form-control" maxlength="250"
+                placeholder="Describa brevemente su motivo de consulta..."></textarea>
+              <small id="contador-motivo">0 / 250</small>
+              <span id="err-motivo" style="color:#dc2626; font-size:0.78rem; display:block;"></span>
+            </div>
+          </div>
 
-  
-    // VALIDACIÓN: Correo Electrónico
-    function validarCorreo() {
-        let correo = document.getElementById("correo").value.trim();
-        let formato = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        let esValido = formato.test(correo);
-        aplicarEstilo("correo", "error-correo", esValido);
-        return esValido;
-    }
+          <div class="d-flex gap-3 flex-wrap">
+            <button class="btn btn-success" onclick="confirmarCita()">
+              <i class="bi bi-check-circle me-1"></i>Confirmar cita
+            </button>
+            <button class="btn btn-secondary" onclick="limpiarFormulario()">
+              <i class="bi bi-arrow-counterclockwise me-1"></i>Limpiar
+            </button>
+          </div>
 
-    // VALIDACIÓN: Teléfono
-    function validarTelefono() {
-        let telefono = document.getElementById("telefono").value.trim();
-        let esValido = /^\d{8,10}$/.test(telefono); //longitud
-        aplicarEstilo("telefono", "error-telefono", esValido);
-        return esValido;
-    }
+        </div>
 
-    // VALIDACIÓN: Edad
-    function validarEdad() {
-        let edad = document.getElementById("edad").value.trim();
-        let esValido = !isNaN(edad) && edad !== "" && parseInt(edad) > 0;
-        aplicarEstilo("edad", "error-edad", esValido);
-        return esValido;
-    }
+        <div id="seccion-confirmacion">
+          <div class="confirmacion-encabezado">
+            <div class="confirmacion-icono">
+              <i class="bi bi-check-lg"></i>
+            </div>
+            <h3>¡Cita Confirmada!</h3>
+            <p>Su cita se reservó con éxito</p>
+          </div>
 
-    // VALIDACIÓN: Especialidad
-    function validarEspecialidad() {
-        let especialidad = document.getElementById("especialidad").value;
-        let esValido = especialidad !== "";
-        aplicarEstilo("especialidad", "error-especialidad", esValido);
-        return esValido;
-    }
+          <div class="confirmacion-cuerpo">
+            <div class="cita-folio">
+              <div>
+                <div class="folio-etiqueta">Número de folio</div>
+                <div class="folio-numero" id="numero-folio"></div>
+              </div>
+              <i class="bi bi-shield-check"></i>
+            </div>
 
-    // VALIDACIÓN: Fecha de la cita
-    function validarFecha() {
-        let valorFecha = document.getElementById("fecha").value;
+            <div class="cita-resumen-grid">
+              <div class="cita-resumen-item">
+                <div class="resumen-etiqueta"><i class="bi bi-person me-1"></i>Paciente</div>
+                <div class="resumen-valor" id="resumen-nombre"></div>
+              </div>
+              <div class="cita-resumen-item">
+                <div class="resumen-etiqueta"><i class="bi bi-hospital me-1"></i>Especialidad</div>
+                <div class="resumen-valor" id="resumen-especialidad"></div>
+              </div>
+              <div class="cita-resumen-item">
+                <div class="resumen-etiqueta"><i class="bi bi-calendar me-1"></i>Fecha</div>
+                <div class="resumen-valor" id="resumen-fecha"></div>
+              </div>
+              <div class="cita-resumen-item">
+                <div class="resumen-etiqueta"><i class="bi bi-clock me-1"></i>Hora</div>
+                <div class="resumen-valor" id="resumen-hora"></div>
+              </div>
+              <div class="cita-resumen-item resumen-monto">
+                <div class="resumen-etiqueta"><i class="bi bi-currency-dollar me-1"></i>Monto</div>
+                <div class="resumen-valor" id="resumen-monto"></div>
+              </div>
+            </div>
 
-        if (valorFecha === "") {
-            aplicarEstilo("fecha", "error-fecha", false);
-            document.getElementById("error-fecha").textContent = "La fecha es obligatoria.";
-            return false;
-        }
+            <button class="btn btn-primary" onclick="nuevaReserva()">
+              <i class="bi bi-plus-circle me-1"></i>Nueva cita
+            </button>
+          </div>
+        </div>
 
-        // Crear objeto Date con la fecha seleccionada
-        let fechaSeleccionada = new Date(valorFecha + "T00:00:00");
-        let hoy = new Date();
-        hoy.setHours(0, 0, 0, 0); // Eliminar la hora de hoy
+      </div>
+    </div>
+  </div>
 
-        // Verificar que no sea una fecha pasada
-        if (fechaSeleccionada < hoy) {
-            aplicarEstilo("fecha", "error-fecha", false);
-            document.getElementById("error-fecha").textContent = "No puede seleccionar una fecha anterior al día de hoy.";
-            return false;
-        }
+  <footer>
+    <div class="container">
+      <div class="row g-5">
 
-        // Verificar que no sea sábado (6) ni domingo (0)
-        let diaSemana = fechaSeleccionada.getDay();
-        if (diaSemana === 0 || diaSemana === 6) {
-            aplicarEstilo("fecha", "error-fecha", false);
-            document.getElementById("error-fecha").textContent = "No se puede reservar en fines de semana (sábado/domingo).";
-            return false;
-        }
+        <div class="col-lg-12">
+          <div class="footer-logo">
+            <span class="brand-nombre">Hospital General GYA</span>
+            <span class="brand-sub">Salud · Calidad · Innovación</span>
+          </div>
+          <p class="footer-descripcion">
+            Somos una alternativa médica integral comprometida con la salud de cada
+            paciente, combinando excelencia clínica, tecnología y calidez humana.
+          </p>
+        </div>
 
-        aplicarEstilo("fecha", "error-fecha", true);
-        return true;
-    }
+        <div class="col-sm-6 col-lg-2">
+          <div class="footer-titulo-seccion">Links de Interés</div>
+          <ul class="footer-links">
+            <li><a href="#">Biblioteca médica virtual</a></li>
+            <li><a href="#">Ecosistema</a></li>
+            <li><a href="Servicios_medicos.html">Servicios Médicos</a></li>
+            <li><a href="#">Especialidades Médicas</a></li>
+            <li><a href="#">Aseguradoras</a></li>
+            <li><a href="#">Centros de Especialidad</a></li>
+            <li><a href="#">Maternidad</a></li>
+          </ul>
+        </div>
 
-    // VALIDACIÓN: Horario
-    function validarHora() {
-        let hora = document.getElementById("hora").value;
+        <div class="col-sm-6 col-lg-3">
+          <div class="footer-titulo-seccion">Contáctenos</div>
+          <ul class="footer-links">
+            <li><a href="#">WhatsApp</a></li>
+            <li><a href="tel:+50625219595">Teléfono</a></li>
+            <li><a href="#">Cotización y Consultas</a></li>
+            <li><a href="#">Trabaje con nosotros</a></li>
+            <li><a href="#">Contraloría de Servicios</a></li>
+            <li><a href="#">Registros Médicos</a></li>
+          </ul>
+        </div>
 
-        if (hora === "") {
-            aplicarEstilo("hora", "error-hora", false);
-            return false;
-        }
+        <div class="col-sm-6 col-lg-3">
+          <div class="footer-titulo-seccion">Contenido</div>
+          <ul class="footer-links">
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Noticias</a></li>
+            <li><a href="#">Testimoniales</a></li>
+          </ul>
 
-        // Separar horas y minutos para comparar como números
-        let partes = hora.split(":");
-        let horas   = parseInt(partes[0]);
-        let minutos = parseInt(partes[1]);
+          <div class="mt-4">
+            <div class="footer-titulo-seccion">Accesos rápidos</div>
+            <div class="d-flex flex-column gap-2 mt-1">
+              <a href="#" class="text-decoration-none">
+                <span class="badge w-100 py-2 text-start"
+                  style="background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.75);font-size:0.82rem;">
+                  <i class="bi bi-whatsapp me-2" style="color:#25D366;"></i>WhatsApp
+                </span>
+              </a>
+              <a href="tel:+50625219595" class="text-decoration-none">
+                <span class="badge w-100 py-2 text-start"
+                  style="background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.75);font-size:0.82rem;">
+                  <i class="bi bi-telephone me-2" style="color:#75C594;"></i>Tel.: 2521-9595
+                </span>
+              </a>
+              <a href="formulario-reserva-citas.html" class="text-decoration-none">
+                <span class="badge w-100 py-2 text-start"
+                  style="background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.75);font-size:0.82rem;">
+                  <i class="bi bi-calendar-check me-2" style="color:#75C594;"></i>Agendar cita
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
 
-        // Convertir a minutos totales para facilitar la comparación
-        let totalMinutos = horas * 60 + minutos;
-        let inicio       = 9 * 60;   // 09:00 en minutos
-        let fin          = 17 * 60;  // 17:00 en minutos
+      </div>
 
-        let esValido = totalMinutos >= inicio && totalMinutos <= fin;
-        aplicarEstilo("hora", "error-hora", esValido);
-        return esValido;
-    }
+      <div class="footer-divider">
+        <div class="d-flex flex-wrap justify-content-between align-items-center footer-bottom gap-2">
+          <span>+506 2521-9595 &nbsp;|&nbsp; info@hospitalgya.cr &nbsp;|&nbsp; Todos los derechos reservados © 2025</span>
+          <span><a href="#">Política de Privacidad</a></span>
+          <span><a href="#">Desarrollado por GYA</a></span>
+        </div>
+      </div>
+    </div>
+  </footer>
 
-    // VALIDACIÓN: Motivo de consulta
-    function validarMotivo() {
-        let motivo   = document.getElementById("motivo").value;
-        let contador = document.getElementById("contador-motivo");
-
-        // Actualizar contador visual en tiempo real
-        contador.textContent = motivo.length + " / 250 caracteres";
-
-        // Cambiar color del contador según límite
-        if (motivo.length >= 230) {
-            contador.style.color = "#dc3545"; // Rojo cuando se acerca al límite
-        } else {
-            contador.style.color = "#6c757d"; // Gris normal
-        }
-
-        let esValido = motivo.trim() !== "";
-        aplicarEstilo("motivo", "error-motivo", esValido);
-        return esValido;
-    }
-
-    // FUNCIÓN PRINCIPAL: Confirmar la cita
-    function confirmarCita() {
-
-        // Ejecutar todas las validaciones y guardar resultados
-        let nombreOk       = validarNombre();
-        let correoOk       = validarCorreo();
-        let telefonoOk     = validarTelefono();
-        let edadOk         = validarEdad();
-        let especialidadOk = validarEspecialidad();
-        let fechaOk        = validarFecha();
-        let horaOk         = validarHora();
-        let motivoOk       = validarMotivo();
-
-        // Si algún campo es inválido, mostrar alerta y detener el proceso
-        if (!nombreOk || !correoOk || !telefonoOk || !edadOk ||
-            !especialidadOk || !fechaOk || !horaOk || !motivoOk) {
-            alert("Por favor complete correctamente todos los campos obligatorios.");
-            return;
-        }
-
-        // ==========================================
-        // Obtener valores del formulario
-        // ==========================================
-        let nombrePaciente    = document.getElementById("nombre").value.trim();
-        let edadPaciente      = parseInt(document.getElementById("edad").value);
-        let especialidadEleg  = document.getElementById("especialidad").value;
-        let fechaCita         = document.getElementById("fecha").value;
-        let horaCita          = document.getElementById("hora").value;
-
-        // ==========================================
-        // Calcular monto según especialidad (usando el vector de montos)
-        // ==========================================
-        let montoCita = obtenerMonto(especialidadEleg);
-
-        // LÓGICA DE DESCUENTO
-        // Si el paciente es menor de 10 años y NO solicitó Pediatría
-        // se aplica un 10% de descuento
-        let descuento = 0;
-        if (edadPaciente < 10 && especialidadEleg !== "Pediatría") {
-            descuento = montoCita * 0.10;
-            montoCita = montoCita - descuento;
-        }
-
-        // ==========================================
-        // Generar número de folio aleatorio
-        // Formato: CLIN-XXXXX (5 dígitos aleatorios)
-        // ==========================================
-        let folio = "Cita-" + Math.floor(Math.random() * 90000 + 10000);
-
-        // ==========================================
-        // Mostrar sección de éxito con los datos de la reserva
-        // Modificando el DOM para ocultar formulario y mostrar confirmación
-        // ==========================================
-        document.getElementById("numero-folio").textContent    = folio;
-        document.getElementById("resumen-nombre").textContent  = nombrePaciente;
-        document.getElementById("resumen-especialidad").textContent = especialidadEleg;
-        document.getElementById("resumen-fecha").textContent   = fechaCita;
-        document.getElementById("resumen-hora").textContent    = horaCita;
-        document.getElementById("resumen-monto").textContent   = "₡" + montoCita.toLocaleString("es-CR");
-
-        // Ocultar formulario y mostrar mensaje de éxito
-        document.getElementById("seccion-formulario").style.display = "none";
-        document.getElementById("seccion-exito").style.display      = "block";
-    }
-
-    // =============================================
-    // FUNCIÓN: Limpiar el formulario
-    // Resetea todos los campos y elimina los estilos de validación
-    // =============================================
-    function limpiarFormulario() {
-        // Lista de IDs de campos a limpiar
-        const campos = ["nombre", "correo", "telefono", "edad", "direccion", "especialidad", "fecha", "hora", "motivo"];
-
-        for (let i = 0; i < campos.length; i++) {
-            let campo = document.getElementById(campos[i]);
-            campo.value = "";                          // Limpiar valor
-            campo.classList.remove("campo-valido");    // Quitar borde verde
-            campo.classList.remove("campo-invalido");  // Quitar borde rojo
-        }
-
-        // Lista de mensajes de error a ocultar
-        const errores = ["error-nombre", "error-correo", "error-telefono", "error-edad",
-                         "error-especialidad", "error-fecha", "error-hora", "error-motivo"];
-
-        for (let i = 0; i < errores.length; i++) {
-            document.getElementById(errores[i]).style.display = "none";
-        }
-
-        // Resetear contador de motivo
-        document.getElementById("contador-motivo").textContent = "0 / 250 caracteres";
-        document.getElementById("contador-motivo").style.color = "#6c757d";
-    }
-
-    // =============================================
-    // FUNCIÓN: Volver a mostrar el formulario vacío
-    // =============================================
-    function nuevaReserva() {
-        document.getElementById("seccion-exito").style.display      = "none";
-        document.getElementById("seccion-formulario").style.display = "block";
-        limpiarFormulario();
-    }
-
-</script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="funciones.js"></script>
 
 </body>
 </html>
