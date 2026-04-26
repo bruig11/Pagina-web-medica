@@ -25,7 +25,6 @@ html {
 }
 
 body {
-    font-family: 'Nunito', sans-serif;
     color: var(--texto-oscuro);
     background-color: var(--gris-claro);
     margin: 0;
@@ -35,9 +34,8 @@ body {
 
 .titulo-pagina {
     margin: 1.5rem 0 0.5rem;
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Noto Seriff", sans-seriff;
     font-weight: 800;
-    font-size: clamp(1.4rem, 3vw, 2rem);
     color: var(--texto-oscuro);
 }
 
@@ -77,7 +75,7 @@ body {
 }
 
 .formulario-encabezado h2 {
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Noto Seriff", sans-seriff;
     font-weight: 800;
     color: var(--blanco);
     font-size: 1.3rem;
@@ -96,7 +94,7 @@ body {
 }
 
 .seccion-titulo-grupo {
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Noto Seriff", sans-serif;
     font-size: 0.68rem;
     font-weight: 700;
     letter-spacing: 0.14em;
@@ -116,7 +114,7 @@ body {
 }
 
 .form-label {
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Noto Seriff", sans-serif;
     font-size: 0.8rem;
     font-weight: 700;
     color: var(--texto-oscuro);
@@ -180,7 +178,7 @@ textarea.form-control {
     border: 1px solid rgba(107, 227, 159, 0.6);
     border-radius: 50px;
     padding: 0.65rem 1.8rem;
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Noto Seriff", sans-serif;
     font-weight: 700;
     font-size: 0.9rem;
     letter-spacing: 0.03em;
@@ -205,7 +203,7 @@ textarea.form-control {
     border: 1.5px solid rgba(107, 227, 159, 0.4);
     border-radius: 50px;
     padding: 0.63rem 1.4rem;
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Noto Seriff", sans-serif;
     font-weight: 700;
     font-size: 0.88rem;
     display: inline-flex;
@@ -221,13 +219,15 @@ textarea.form-control {
     color: var(--texto-oscuro);
 }
 
+
+
 .btn.btn-primary {
     background: hsl(220, 48%, 20%);
     color: var(--blanco);
     border: none;
     border-radius: 50px;
     padding: 0.65rem 1.8rem;
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Noto Seriff", sans-serif;
     font-weight: 700;
     font-size: 0.9rem;
     display: inline-flex;
@@ -245,6 +245,7 @@ textarea.form-control {
 }
 
 #seccion-confirmacion {
+    font-family: "Noto Seriff", sans-serif;
     display: none;
     text-align: left;
     padding: 0;
@@ -255,6 +256,7 @@ textarea.form-control {
     padding: 2.2rem 2rem;
     text-align: center;
     border-bottom: 2px solid rgba(107, 227, 159, 0.3);
+    font-family: "Noto Seriff", sans-serif;
 }
 
 .confirmacion-icono {
@@ -273,15 +275,20 @@ textarea.form-control {
 }
 
 @keyframes popIn {
-    from { transform: scale(0); opacity: 0; }
-    to   { transform: scale(1); opacity: 1; }
+    from {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
 }
 
 .confirmacion-encabezado h3 {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 800;
+    font-family: "Noto Seriff", sans-serif;
     color: var(--blanco);
-    font-size: 1.65rem;
     margin: 0 0 0.3rem;
 }
 
@@ -306,11 +313,12 @@ textarea.form-control {
     align-items: center;
     justify-content: space-between;
     margin-bottom: 1.5rem;
+    font-family: "Noto Seriff", sans-serif;
 }
 
 .cita-folio .folio-etiqueta {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.68rem;
+   font-family: "Noto Seriff", sans-serif;
+    font-size: 0.5rem;
     opacity: 0.65;
     text-transform: uppercase;
     letter-spacing: 0.1em;
@@ -318,30 +326,31 @@ textarea.form-control {
 }
 
 .cita-folio .folio-numero {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 800;
+    font-family: "Noto Seriff", sans-serif;
+    font-weight: 500;
     font-size: 1.7rem;
     color: #75C594;
     line-height: 1;
 }
 
 .cita-folio i {
-    font-size: 2rem;
+    font-size: 3rem;
     opacity: 0.3;
     color: #75C594;
 }
 
-/* ── Grilla de resumen de la cita ── */
 .cita-resumen-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
     gap: 1rem;
     margin-bottom: 1.5rem;
+    font-family: "Noto Seriff", sans-serif;
 }
 
 .cita-resumen-item {
     background: var(--blanco);
     border-radius: var(--borde-radio);
+    font-family: "Noto Seriff", sans-serif;
     padding: 0.9rem 1rem;
     border: 1px solid rgba(107, 227, 159, 0.25);
     border-left: 3px solid rgba(107, 227, 159, 0.526);
@@ -349,7 +358,7 @@ textarea.form-control {
 }
 
 .cita-resumen-item .resumen-etiqueta {
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Noto Seriff", sans-serif;
     font-size: 0.68rem;
     font-weight: 700;
     color: rgba(0, 0, 0, 0.45);
@@ -359,7 +368,7 @@ textarea.form-control {
 }
 
 .cita-resumen-item .resumen-valor {
-    font-size: 0.95rem;
+    font-family: "Noto Seriff", sans-serif;
     font-weight: 700;
     color: var(--texto-oscuro);
 }
@@ -371,17 +380,32 @@ textarea.form-control {
 
 .cita-resumen-item.resumen-monto .resumen-valor {
     color: rgba(10, 94, 66, 0.9);
+    font-family: "Noto Seriff", sans-serif;
     font-size: 1.1rem;
+    letter-spacing: 0.02em;
 }
 
 
 @media (max-width: 767.98px) {
-    .formulario-cuerpo { padding: 1.5rem 1rem 2rem; }
-    .formulario-encabezado { padding: 1.2rem 1rem; }
-    .confirmacion-cuerpo { padding: 1.5rem 1rem; }
-    .cita-resumen-grid { grid-template-columns: 1fr 1fr; }
+    .formulario-cuerpo {
+        padding: 1.5rem 1rem 2rem;
+    }
+
+    .formulario-encabezado {
+        padding: 1.2rem 1rem;
+    }
+
+    .confirmacion-cuerpo {
+        padding: 1.5rem 1rem;
+    }
+
+    .cita-resumen-grid {
+        grid-template-columns: 1fr 1fr;
+    }
 }
 
 @media (max-width: 575.98px) {
-    .cita-resumen-grid { grid-template-columns: 1fr; }
+    .cita-resumen-grid {
+        grid-template-columns: 1fr;
+    }
 }

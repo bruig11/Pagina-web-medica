@@ -113,8 +113,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
-//Confirmar cita
-
 function confirmarCita() {
   let valido = validarNombre() & validarCorreo() & validarTelefono() & validarEdad() &
                validarEspecialidad() & validarFecha() & validarHora() & validarMotivo();
@@ -146,7 +144,7 @@ function confirmarCita() {
   document.getElementById("seccion-confirmacion").style.display          = "block";
 }
 
-//Limpiar
+
 
 function limpiarFormulario() {
   document.querySelectorAll("input, textarea, select").forEach(el => el.value = "");
@@ -159,7 +157,7 @@ function limpiarFormulario() {
   });
 }
 
-//nueva cita
+
 
 function nuevaReserva() {
   document.getElementById("seccion-confirmacion").style.display          = "none";
